@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- Cloned by RabinsXP.com-->
+<head>
+    <title>My History</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="static/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="static/assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="static/assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="static/assets/plugins/animate.css">
+    <link rel="stylesheet" href="static/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="static/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="static/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+    <link rel="stylesheet" href="static/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="static/assets/css/pages/profile.css">
+    <link rel="stylesheet" href="static/assets/css/pages/shortcode_timeline2.css">
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="static/assets/css/theme-colors/default.css" id="style_color">
+    <link rel="stylesheet" href="static/assets/css/theme-skins/dark.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="static/assets/css/custom.css">
+</head>
+
+<body>
+<div class="wrapper">
+    <!--=== Header ===-->
+   <!--=== Header ===-->
+    <div class="header">
+        <div class="container">
+            <!-- Logo -->
+                <a class="logo" href="{{url_for ('profile_main')}}">
+                <img src="static/assets/img/logo1-default.png" alt="Logo">
+            </a>
+
+            <div class="topbar">
+              <ul class="loginbar pull-right">
+
+                    <li>{{user}}</li>
+                    <!--<li><a href="{{url_for ('registration')}}">Registration</a></li>-->
+                    <li class="topbar-devider"></li>
+                    <!--<li>{{ user }}</li>-->
+                    <li> <a href="{{url_for ('login')}}"><u>Sign Out </u> </a></li>
+
+
+
+                </ul>
+            </div>
+            <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">-->
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <!--<span class="fa fa-bars"></span>-->
+            <!--</button>-->
+
+        </div>
+
+            </div>
+    <!--=== End Header ===-->
+
+    <!--=== Profile ===-->
+    <div class="container content profile">
+    	<div class="row">
+            <!--Left Sidebar-->
+            <div class="col-md-3 md-margin-bottom-40">
+                <img class="img-responsive profile-img margin-bottom-20" src="static/assets/img/team/img32-md.jpg" alt="">
+   <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                    <li class="list-group-item active">
+                        <a href="{{url_for ('profile_main')}}"><i class="fa fa-bar-chart-o"></i> Home</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{url_for ('my_projects')}}"><i class="fa fa-cubes"></i> My Projects</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{url_for ('my_history')}}"><i class="fa fa-comments"></i> History</a>
+                    </li>
+                       <li class="list-group-item">
+                        <a href="{{url_for ('my_profile')}}"><i class="fa fa-user"></i> My Profile</a>
+                    </li>
+                </ul>
+
+
+
+                <div class="margin-bottom-50"></div>
+
+                <!--Datepicker-->
+                <form action="#" id="sky-form2" class="sky-form">
+                    <div id="inline-start"></div>
+                </form>
+                <!--End Datepicker-->
+            </div>
+            <!--End Left Sidebar-->
+
+            <!-- Profile Content -->
+             <div class="reg-header" align="center">
+                 <h2>My History</h2>
+                 <p> <a href="{{url_for('clear_history')}}"><button type="button"  class="btn-u pull-right"  data-toggle="confirmation" data-title="Are you SURE">Clear History</button></a></p>
+             </div>
+
+            <br>
+            <div class="col-md-9">
+                <div class="profile-body">
+                    <ul class="timeline-v2">
+                        {% for project in history %}
+                        <li>
+                            <time class="cbp_tmtime" datetime=""><span>{{project.Date}}</span></time>
+                            <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                            <div class="cbp_tmlabel">
+                                <h2>{{project.Project_title}}</h2>
+                                <p>{{project.Description}}</p>
+                            </div>
+                        </li>
+                        {%endfor %}
+                    </ul>
+                    <!--End Timeline-->
+                </div>
+            </div>
+            <!-- End Profile Content -->
+        </div>
+    </div><!--/container-->
+    <!--=== End Profile ===-->
+
+
+<hr style="border-top: dotted 3px;" />
+
+</div><!--/wrapper-->
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="static/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="static/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="static/assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="static/assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="static/assets/plugins/counter/waypoints.min.js"></script>
+<script type="text/javascript" src="static/assets/plugins/counter/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="static/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="static/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="static/assets/js/custom.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="static/assets/js/app.js"></script>
+<script type="text/javascript" src="static/assets/js/plugins/datepicker.js"></script>
+<script type="text/javascript" src="static/assets/js/plugins/style-switcher.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initScrollBar();
+        Datepicker.initDatepicker();
+        StyleSwitcher.initStyleSwitcher();
+    });
+</script>
+<!--[if lt IE 9]>
+    <script src="static/assets/plugins/respond.js"></script>
+    <script src="static/assets/plugins/html5shiv.js"></script>
+    <script src="static/assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+</body>
+
+<!-- Cloned by RabinsXP.com-->
+</html>

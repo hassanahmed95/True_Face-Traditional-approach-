@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- Cloned by RabinsXP.com-->
+<head>
+    <title>Registration</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="static/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="static/assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="static/assets/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="static/assets/plugins/animate.css">
+    <link rel="stylesheet" href="static/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="static/assets/plugins/font-awesome/css/font-awesome.min.css">
+
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="static/assets/css/pages/page_log_reg_v1.css">
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="static/assets/css/theme-colors/default.css" id="style_color">
+    <link rel="stylesheet" href="static/assets/css/theme-skins/dark.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="static/assets/css/custom.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+ <!--=== Header ===-->
+    <div class="header">
+        <div class="container">
+            <!-- Logo -->
+            <a class="logo" href="{{url_for ('home')}}">
+                <img src="static/assets/img/logo1-default.png" alt="Logo">
+            </a>
+            <!-- End Logo -->
+
+            <!-- Topbar -->
+            <div class="topbar">
+                <ul class="loginbar pull-right">
+                    <li class="hoverSelector">
+
+
+                    <li><a href="{{url_for ('registration')}}">Registration</a></li>
+                    <li class="topbar-devider"></li>
+                    <li><a href="{{url_for ('login')}}">Login</a></li>
+
+
+                </ul>
+            </div>
+            <!-- End Topbar -->
+
+            <!-- Toggle get grouped for better mobile display -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="fa fa-bars"></span>
+            </button>
+            <!-- End Toggle -->
+        </div><!--/end container-->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+            <div class="container">
+                <ul class="nav navbar-nav">
+										<!-- Home -->
+
+
+
+
+                                            <li> <a href=" {{url_for ('home')}}"> Home </a>   </li>
+                                            <!--<li ><a href="/">Home</a></li>-->
+                                            <li><a href=" {{url_for('about')}}">About Us</a></li>
+                                            <li><a href="{{url_for ('contact')}}">Contact Us</a></li>
+
+                    <!-- End about --><!-- End Shortcodes -->
+
+
+                    <!-- Search Block -->
+                    <li>
+                        <i class="search fa fa-search search-btn"></i>
+                        <div class="search-open">
+                            <div class="input-group animated fadeInDown">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <span class="input-group-btn">
+                                    <button class="btn-u" type="button">Go</button>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End Search Block -->
+                </ul>
+            </div><!--/end container-->
+        </div><!--/navbar-collapse-->
+    </div>
+    <!--=== End Header ===-->
+
+
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <form class="reg-page" method=POST  action="{{url_for ('registration')}}">
+                    <div class="reg-header">
+                        <h2>Register a new account</h2>
+                        <p>Already Signed Up? Click <a href="{{url_for('login')}}" class="color-green">Sign In</a> to login your account.</p>
+                    </div>
+                    <label>Usersname</label>
+                    <input type="text" class="form-control margin-bottom-20"name="username" placeholder="Username">
+
+                    <!--<label>Last Name</label>-->
+                    <!--<input type="text" class="form-control margin-bottom-20">-->
+
+                    <label>Email Address <span class="color-red">*</span></label>
+                    <input type="text" class="form-control margin-bottom-20" name="Email" placeholder="Email Address">
+                    <label>Password <span class="color-red">*</span></label>
+                    <input type="password" class="form-control margin-bottom-20"   name="pass" placeholder="Password">
+
+                   {% with messages = get_flashed_messages() %}
+                                      {% if messages %}
+                                        {% for message in messages %}
+                                          <div class="alert alert-warning alert-dismissible" role="alert">
+                                          <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close" style="width:40px"><span aria-hidden="true">×</span></button>-->
+
+                                              <button type="button" class="btn btn-default" data-dismiss="alert" aria-label="Close" style="margin-left:-15px "><span aria-hidden="true">×</span></button>
+
+                                            {{message}}
+                                          </div>
+                                        {% endfor %}
+                                      {% endif %}
+                    {% endwith %}
+
+                    <div class="row">
+
+                        <div class="col-lg-6 text-right">
+                            <button class="btn-u" type="submit">Register</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+     <!--=== Footer Version 1 ===-->
+    <div class="footer-v1">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- About -->
+
+                    <div class="col-sm-3 md-margin-bottom-10">
+                        <a href="index-2.html"><img id="logo-footer" class="footer-logo" src="static/assets/img/logo1-default.png" alt="Logo"alt=""></a>
+                        <p>True Face is the application based on techniques of computer vision. It can be used for multiple purposes.</p>
+                        <p>The main purpose of True Face is to detect faces in the group of people and classify the facial expressions
+                         of people as interested, boring or neutral and  then generate a graphical representation of fcial expressions</p>
+                    </div><!--/col-md-3-->
+                    <!-- End About -->
+
+
+                    <!-- Link List -->
+                    <div class="col-sm-5 md-margin-bottom-40">
+                        <div class="headline"><h2>Useful Links</h2></div>
+                        <ul class="list-unstyled link-list">
+                            <li><a href="{{url_for('about')}}">About us</a><i class="fa fa-angle-right"></i></li>
+                            <!--<li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>-->
+                            <!--<li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>-->
+                            <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="https://www.namal.edu.pk/">Namal College</a><i class="fa fa-angle-right"></i></li>
+                        </ul>
+                    </div><!--/col-md-3-->
+                    <!-- End Link List -->
+
+                    <!-- Address -->
+                    <div class="col-sm-4 map-img md-margin-bottom-40">
+                        <div class="headline"><h2>Contact Us</h2></div>
+                        <address class="md-margin-bottom-40">
+                            35 KM, Talagang Road <br />
+                            Namal College, Mianwali <br />
+                            Phone: +92 3347251661 <br />
+                            Email: <a href="mr.hassaan95@gmail.com" class="">mr.hassaan95@gmail.com</a>
+                        </address>
+                    </div><!--/col-md-3-->
+                    <!-- End Address -->
+                </div>
+            </div>
+        </div><!--/footer-->
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+
+
+                    <!-- Social Links -->
+                    <div class="col-md-6">
+                        <ul class="footer-socials list-inline">
+                            <li>
+                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- End Social Links -->
+                </div>
+            </div>
+        </div><!--/copyright-->
+    </div>
+    <!--=== End Footer Version 1 ===-->
+</div>
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="static/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="static/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="static/assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="static/assets/plugins/smoothScroll.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="static/assets/js/custom.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="static/assets/js/app.js"></script>
+<script type="text/javascript" src="static/assets/js/plugins/style-switcher.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        StyleSwitcher.initStyleSwitcher();
+    });
+</script>
+<!--[if lt IE 9]>
+    <script src="static/assets/plugins/respond.js"></script>
+    <script src="static/assets/plugins/html5shiv.js"></script>
+    <script src="static/assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
+</body>
+
+<!-- Cloned by RabinsXP.com-->
+</html>
